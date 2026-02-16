@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hill Cot DEM Viewer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+      }
+
+      .info-box {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 12px 16px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        z-index: 100;
+      }
+
+      .info-box h2 {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .info-box p {
+        color: #666;
+        margin: 4px 0;
+        line-height: 1.4;
+      }
+    </style>
+    <script type="module" crossorigin src="/index.js"></script>
+    
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="info-box">
+      <h2>Hill Cot DEM</h2>
+      <p>Sierra Leone</p>
+      <p>Resolution: 0.5m</p>
+      <p>Format: Terrarium PMTiles</p>
+    </div>
+  </body>
+</html>

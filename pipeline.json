@@ -1,0 +1,42 @@
+{
+  "pipeline": [
+    {
+      "type": "readers.copc",
+      "filename": "https://tunnel.optgeo.org/hillcot.copc.laz",
+      "bounds": "([-1475527.22, -1474628.53], [945306.85, 946043.66])",
+      "resolution": 0.5
+    },
+    {
+      "type": "filters.outlier",
+      "method": "statistical",
+      "mean_k": 16,
+      "multiplier": 2.5
+    },
+    {
+      "type": "filters.smrf",
+      "scalar": 1.2,
+      "slope": 0.15,
+      "threshold": 0.5,
+      "window": 24.0
+    },
+    {
+      "type": "filters.range",
+      "limits": "Classification[2:2]"
+    },
+    {
+      "type": "writers.gdal",
+      "filename": "public/data/dem/hillcot_dem_0p5m.tif",
+      "resolution": 0.5,
+      "output_type": "idw",
+      "window_size": 100,
+      "data_type": "float32",
+      "nodata": -9999,
+      "bounds": "([-1475527.22, -1474628.53], [945306.85, 946043.66])",
+      "gdalopts": [
+        "TILED=YES",
+        "COMPRESS=DEFLATE",
+        "BIGTIFF=IF_SAFER"
+      ]
+    }
+  ]
+}
