@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
+import { viteSingleFile } from 'vite-plugin-singlefile'
 
 export default defineConfig({
-  plugins: [cssInjectedByJsPlugin()],
+  plugins: [viteSingleFile()],
   root: '.',
   publicDir: 'public',
   build: {
@@ -10,12 +10,10 @@ export default defineConfig({
     emptyOutDir: true,
     minify: 'esbuild',
     cssCodeSplit: false,
+    assetsInlineLimit: 100000000,
     rollupOptions: {
       output: {
-        inlineDynamicImports: true,
-        entryFileNames: 'index.js',
-        chunkFileNames: 'chunk-[hash].js',
-        assetFileNames: 'asset-[hash][extname]'
+        inlineDynamicImports: true
       }
     }
   }
