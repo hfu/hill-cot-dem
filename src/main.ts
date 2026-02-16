@@ -53,9 +53,9 @@ const map = new Map({
   maxPitch: 85
 })
 
-map.on('load', () => {
+map.once('idle', () => {
   console.log('Map loaded with Terrarium DEM')
-  // Enable terrain from the start
+  // Enable terrain from the start (wait for all tiles to load)
   map.setTerrain({ source: 'terrarium', exaggeration: 1.0 })
 })
 

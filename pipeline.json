@@ -28,6 +28,8 @@
       "filename": "public/data/dem/hillcot_dem_0p5m.tif",
       "resolution": 0.5,
       "output_type": "idw",
+      "radius": 2.0,
+      "power": 2.0,
       "window_size": 100,
       "data_type": "float32",
       "nodata": -9999,
